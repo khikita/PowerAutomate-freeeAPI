@@ -1,0 +1,380 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "freeeAPI",
+      "description": "",
+      "version": "1.0"
+    },
+    "host": "api.freee.co.jp",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+  
+    ],
+    "produces": [
+  
+    ],
+    "paths": {
+      "/api/1/companies": {
+        "get": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+              }
+            }
+          },
+          "summary": "事業所一覧の取得",
+          "operationId": "get_companies",
+          "description": "ユーザが所属する事業所の一覧を取得する",
+          "parameters": [
+  
+          ]
+        }
+      },
+      "/api/1/quotations": {
+        "get": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+              }
+            }
+          },
+          "summary": "見積書一覧の取得",
+          "description": "指定した事業所の見積書一覧を取得する",
+          "operationId": "get_quotations",
+          "parameters": [
+            {
+              "name": "company_id",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "partner_id",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "partner_code",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "quotation_number",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            }
+          ]
+        },
+        "post": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+              }
+            }
+          },
+          "summary": "見積書の作成",
+          "description": "指定した事業所の見積書を作成する",
+          "operationId": "create_quotation",
+          "parameters": [
+            {
+              "name": "accept:",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "default": "appilcation/json"
+            },
+            {
+              "name": "Content-Type:",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "default": "application/json"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": false,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "company_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "company_id"
+                  },
+                  "issue_date": {
+                    "type": "string",
+                    "description": "issue_date"
+                  },
+                  "partner_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "partner_id"
+                  },
+                  "partner_code": {
+                    "type": "string",
+                    "description": "partner_code"
+                  },
+                  "quotation_number": {
+                    "type": "string",
+                    "description": "quotation_number"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "title"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description"
+                  },
+                  "quotation_status": {
+                    "type": "string",
+                    "description": "quotation_status"
+                  },
+                  "partner_display_name": {
+                    "type": "string",
+                    "description": "partner_display_name"
+                  },
+                  "partner_title": {
+                    "type": "string",
+                    "description": "partner_title"
+                  },
+                  "partner_contact_info": {
+                    "type": "string",
+                    "description": "partner_contact_info"
+                  },
+                  "partner_zipcode": {
+                    "type": "string",
+                    "description": "partner_zipcode"
+                  },
+                  "partner_prefecture_code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "partner_prefecture_code"
+                  },
+                  "partner_address1": {
+                    "type": "string",
+                    "description": "partner_address1"
+                  },
+                  "partner_address2": {
+                    "type": "string",
+                    "description": "partner_address2"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "company_name"
+                  },
+                  "company_zipcode": {
+                    "type": "string",
+                    "description": "company_zipcode"
+                  },
+                  "company_prefecture_code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "company_prefecture_code"
+                  },
+                  "company_address1": {
+                    "type": "string",
+                    "description": "company_address1"
+                  },
+                  "company_address2": {
+                    "type": "string",
+                    "description": "company_address2"
+                  },
+                  "company_contact_info": {
+                    "type": "string",
+                    "description": "company_contact_info"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "message"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "description": "notes"
+                  },
+                  "quotation_layout": {
+                    "type": "string",
+                    "description": "quotation_layout"
+                  },
+                  "tax_entry_method": {
+                    "type": "string",
+                    "description": "tax_entry_method"
+                  },
+                  "quotation_contents": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "order": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "order"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "qty": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "qty"
+                        },
+                        "unit": {
+                          "type": "string",
+                          "description": "unit"
+                        },
+                        "unit_price": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "unit_price"
+                        },
+                        "vat": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "vat"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "description"
+                        },
+                        "account_item_id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "account_item_id"
+                        },
+                        "tax_code": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "tax_code"
+                        },
+                        "item_id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "item_id"
+                        },
+                        "section_id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "section_id"
+                        },
+                        "tag_ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "format": "int32"
+                          },
+                          "description": "tag_ids"
+                        },
+                        "segment_1_tag_id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "segment_1_tag_id"
+                        },
+                        "segment_2_tag_id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "segment_2_tag_id"
+                        },
+                        "segment_3_tag_id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "segment_3_tag_id"
+                        }
+                      }
+                    },
+                    "description": "quotation_contents"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "/api/1/taxes/codes": {
+        "get": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+              }
+            }
+          },
+          "operationId": "get_tax_codes",
+          "summary": "税区分コード一覧を取得する",
+          "description": "税区分コード一覧を取得する",
+          "parameters": [
+            {
+              "name": "company_id",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            }
+          ]
+        }
+      },
+      "/api/1/account_items": {
+        "get": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+              }
+            }
+          },
+          "operationId": "get_account_items",
+          "description": "勘定科目一覧の取得",
+          "summary": "指定した事業所の勘定科目一覧を取得する",
+          "parameters": [
+            {
+              "name": "company_id",
+              "in": "query",
+              "required": false,
+              "type": "integer"
+            }
+          ]
+        }
+      }
+    },
+    "definitions": {
+    },
+    "parameters": {
+    },
+    "responses": {
+    },
+    "securityDefinitions": {
+      "oauth2_auth": {
+        "type": "oauth2",
+        "flow": "accessCode",
+        "authorizationUrl": "https://accounts.secure.freee.co.jp/public_api/authorize",
+        "tokenUrl": "https://accounts.secure.freee.co.jp/public_api/token",
+        "scopes": {
+        }
+      }
+    },
+    "security": [
+      {
+        "oauth2_auth": [
+  
+        ]
+      }
+    ],
+    "tags": [
+  
+    ]
+  }
